@@ -23,7 +23,7 @@ def functionalities(classifier,svm):
     import matplotlib.pyplot as plt
 
     expander = st.expander("See explanation", expanded=False)
-    df = pd.read_csv('data\spam.tsv', sep='\t')
+    df = pd.read_csv('data/spam.tsv', sep='\t')
     expander.write(df.head())
     expander.write(df.isna().sum())
     expander.write(df.tail())
@@ -87,6 +87,7 @@ def functionalities(classifier,svm):
     expander.write(svm.predict(test2))
     expander.write(svm.predict(test3)) 
 
+
 def controls(classifier, svm):
     st.write("SPAM MESSAGE CLASSIFICATION")
      #!! Streamlit - st starts 
@@ -113,13 +114,13 @@ def controls(classifier, svm):
             st.write('SVM Prediction:', response["SVMPred"]) 
             
     #!! Streamlit - st ends
+
+
 def getResponse(classifier, svm, user_input):
-    # Testing
     test1 = [user_input] 
-    
     dictPredictedValues = {
         "ClassifierPred": classifier.predict(test1),
-        "SVMPred": svm.predict(test1) 
+        "SVMPred": svm.predict(test1)
     }
     return dictPredictedValues
  
